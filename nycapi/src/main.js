@@ -9,3 +9,5 @@ const app = createApp(App)
 app.use(router)
 
 app.mount('#app')
+
+/// i really have no idea what i am doing lmao
