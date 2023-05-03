@@ -8,11 +8,6 @@ const router = createRouter({
       name: 'ApiData',
       component: ApiData
     },
-    {
-      path: '/ApiData',
-      name: 'ApiData',
-      component: () => import('../views/ApiData.vue')
-    },
 
     {
       path: '/pieView',

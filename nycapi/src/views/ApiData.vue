@@ -1,13 +1,13 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import CrimeCards from '../components/CrimeCards.vue'
+import { ref, onMounted } from 'vue'
 
-const crime = ref('')
+const crimed = ref('')
 async function getCrime() {
-  const response = await fetch('https://data.cityofnewyorhttps://data.cityofnewyork.us/resource/uip8-fykc.jsonk.us/https://data.cityofnewyork.us/resource/qb7u-rbmr.json/ia2d-e54m.json')
+  const response = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
   const data = await response.json()
-  crime.value = data
-  console.log(data);
+  crimed.value = data
+  console.log(data)
 }
 onMounted(() => {
   getCrime()
@@ -16,6 +16,14 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <CrimeCards v-for="(title, index) in crime" :key="title.date" :id="index + 1" :crime="title" />
+    <CrimeCards
+      v-for="crime in crimed"
+      :key="crime"
+      :arrest_key="crime.arrest_key"
+      :arrest_date="crime.arrest_date"
+      :ofns_desc="crime.ofns_desc"
+      :perp_sex="crime.perp_sex"
+      :perp_race="crime.perp_race"
+    />
   </div>
 </template>
