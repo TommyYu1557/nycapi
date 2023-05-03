@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import CrimeCards from './components/CrimeCards.vue'
+import CrimeCards from '../components/CrimeCards.vue'
 
 const crime = ref('')
 async function getCrime() {

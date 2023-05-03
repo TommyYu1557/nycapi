@@ -17,7 +17,7 @@ export default {
         arrest_date: Number,
         age_group: Number,
         perp_sex: String,
-        race: String,
-        offense: String
+        perp_race: String,
+        ofns_desc: String
     }}
 </script>
