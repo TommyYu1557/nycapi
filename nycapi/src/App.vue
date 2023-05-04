@@ -6,13 +6,13 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home home</RouterLink>
+        <RouterLink to="/"> All Reports</RouterLink>
       </nav>
-      <nav> 
-        <router-link to="/pieView" >Data about something lol</router-link>
+      <nav>
+        <router-link to="/pieView"> Data about Age</router-link>
       </nav>
-      <nav> 
-        <router-link to="/barView" >Data about something lol</router-link>
+      <nav>
+        <router-link to="/barView">Data about Race</router-link>
       </nav>
     </div>
   </header>

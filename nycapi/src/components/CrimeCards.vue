@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h1>{{ id }}</h1>
     <h2>Date of Arrest: {{ arrest_date }}</h2>
     <h3>Offendant Age: {{ age_group }}</h3>
     <h3>Offendant Sex: {{ perp_sex }}</h3>
@@ -13,8 +12,8 @@
 export default {
   props: {
     crime: Object,
-    arrest_date: Number,
-    age_group: Number,
+    arrest_date: String,
+    age_group: String,
     perp_sex: String,
     perp_race: String,
     ofns_desc: String

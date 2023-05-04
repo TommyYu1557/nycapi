@@ -24,6 +24,16 @@ onMounted(() => {
       :ofns_desc="crime.ofns_desc"
       :perp_sex="crime.perp_sex"
       :perp_race="crime.perp_race"
+      :age_group="crime.age_group"
     />
   </div>
 </template>
+
+<style>
+.container {
+  border: 1px solid black;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+</style>

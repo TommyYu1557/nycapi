@@ -1,36 +1,23 @@
 <template>
-    <div class="bruh">
-      <Pie v-if="loaded" :options="chartOptions" :data="chartData" />
-    </div>
-  </template>
-  
-  <script>
-  import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-  import { Pie } from 'vue-chartjs'
-  ChartJS.register(ArcElement, Tooltip, Legend)
-  name: 'PieChart',
- components: {
-    Bar
-  },
-  props: {
-    chartOptions: {
-      type: Object,
-      required: true,
-      default: () => ({
-        responsive: true
-      })
-    },
-    chartData: {
-      type: Object,
-      required: true
-    }
+  <div class="bruh">
+    Age of Offenders
+    <PieChart v-if="loaded" :options="chartOptions" :data="chartData" />
+  </div>
+</template>
+
+<script>
+import PieChart from '../components/PieChart.vue'
+export default {
+  name: 'PieView',
+  components: {
+    PieChart
   },
   data() {
     return {
       loaded: false,
       chartData: {
         labels: ['<18', '18-24', '25-44', '45-64', '65'],
-        datasets: [{ label: 'age groups', data: [] }]
+        datasets: [{ data: [] }]
       },
       chartOptions: {
         responsive: true,
@@ -39,6 +26,7 @@
       }
     }
   },
+
   async mounted() {
     try {
       const res = await fetch('https://data.cityofnewyork.us/resource/uip8-fykc.json')
@@ -55,9 +43,8 @@
       this.chartData.datasets[0].data.push(older.length)
       this.loaded = true
     } catch (e) {
-      console.error(e)
+      console.log(e)
     }
-    console.log(this.chartData)
   }
 }
 </script>
@@ -83,29 +70,27 @@ h2:hover {
   height: 500;
   width: 1000px;
 }
+</style>
 
+<style scoped>
+h2 {
+  color: #30312e;
+  font-size: 25px;
+  text-align: center;
+}
+h2:hover {
+  text-decoration: underline;
+  transition: 0.2s;
+  color: #815429;
+  font-size: 10px;
+}
+.bruh {
+  margin-left: 75%;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
+  margin: 25px;
+  height: 700px;
+  width: 700px;
+}
 </style>
-  
-  <style scoped>
-  h2 {
-    color: #30312e;
-    font-size: 25px;
-    text-align: center;
-  }
-  h2:hover {
-    text-decoration: underline;
-    transition: 0.2s;
-    color: #815429;
-    font-size: 10px;
-  }
-  .bruh {
-    margin-left: 75%;
-    flex-wrap: wrap;
-    justify-content: center;
-    display: flex;
-    margin: 25px;
-    height: 700px;
-    width: 700px;
-  }
-</style>
-  
